@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# clipcat 剪板历史 → fuzzel 选 → clipcatd promote
+set -euo pipefail
+
+clipcatctl list 2>/dev/null \
+    | sed 's/^\([^:]*\): /\1\t/' \
+    | fuzzel --dmenu \
+        --config="${XDG_CONFIG_HOME:-$HOME/.config}/fuzzel/clipcat.ini" \
+        --with-nth=2.. --accept-nth=1 \
+    | xargs -r clipcatctl promote
