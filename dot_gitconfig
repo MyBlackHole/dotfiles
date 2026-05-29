@@ -6,6 +6,7 @@
 	quotepath = false
 	excludesfile = /home/black/.gitignore
 	safecrlf = true
+	compression = 0
 ; [https]
 ; 	proxy = http://127.0.0.1:1080
 ; [http]
@@ -15,4 +16,4 @@
 [init]
 	defaultBranch = main
 [http]
-    postBuffer = 104857600
+	postBuffer = 524288000

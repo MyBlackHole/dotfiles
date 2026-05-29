@@ -1,0 +1,39 @@
+# ---- 窗口管理器基础 ----
+niri
+mako
+fuzzel
+waybar
+swaylock
+swayidle
+wlogout
+clipcat
+xwayland-satellite
+
+# ---- 系统服务 ----
+pipewire
+wireplumber
+pavucontrol
+pamixer
+iwd
+bluez
+bluez-utils
+blueman
+brightnessctl
+udisks2
+
+# ---- 依赖 ----
+polkit-gnome
+pacman-contrib
+jq
+imagemagick
+libnotify
+xdg-desktop-portal
+xdg-desktop-portal-gtk
+
+# ---- 主题/外观 ----
+nwg-look
+qt5ct
+qt6ct
+kvantum
+alacritty
+fastfetch

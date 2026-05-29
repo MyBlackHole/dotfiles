@@ -1,0 +1,6 @@
+ttf-cascadia-code-nerd
+ttf-jetbrains-mono-nerd
+ttf-maple-nerd
+ttf-mononoki-nerd
+ttf-material-design-iconic-fonts
+noto-fonts-cjk

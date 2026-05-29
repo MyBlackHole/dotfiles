@@ -1,14 +1,43 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "model": "opencode/deepseek-v4-flash-free",
+  "mcp": {
+    "ghidra": {
+      "command": [
+        "python",
+        "/home/black/Downloads/GhidraMCP-release-1-4/bridge_mcp_ghidra.py",
+        "--ghidra-server",
+        "http://127.0.0.1:8080/"
+      ],
+      "type": "local"
+    },
+    "gh_grep": {
+      "type": "remote",
+      "url": "https://mcp.grep.app"
+    },
+    "gitnexus": {
+      "command": [
+        "gitnexus",
+        "mcp"
+      ],
+      "type": "local"
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    }
+  },
   "plugin": [
     "gitnexus@latest",
-    "oh-my-openagent@latest",
-    "superpowers@git+https://github.com/obra/superpowers.git"
-  ],
-  "mcp": {
-    "gitnexus": {
-      "type": "local",
-      "command": ["gitnexus", "mcp"]
-    }
-  }
+    "superpowers@git+https://github.com/obra/superpowers.git",
+    "oh-my-openagent@latest"
+  ]
 }

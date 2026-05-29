@@ -281,6 +281,9 @@ spawn-at-startup "fcitx5 -d"
 
 spawn-at-startup "mako"
 
+spawn-at-startup "clipcatd"
+
+spawn-sh-at-startup "swayidle -w timeout 600 'swaylock -f' timeout 900 'niri msg action power-off-monitors' before-sleep 'swaylock -f' lock 'swaylock -f'"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
