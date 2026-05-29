@@ -37,3 +37,7 @@ qt6ct
 kvantum
 alacritty
 fastfetch
+
+# ---- 输入法/壁纸 ----
+fcitx5
+awww
