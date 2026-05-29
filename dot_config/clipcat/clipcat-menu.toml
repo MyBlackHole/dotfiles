@@ -1,28 +1,9 @@
 server_endpoint = "/run/user/1000/clipcat/grpc.sock"
-finder = "rofi"
-preview_length = 80
+finder = "fuzzel"
 
-[rofi]
-line_length = 100
-menu_length = 30
-menu_prompt = "Clipcat"
-extra_arguments = []
-
-[dmenu]
-line_length = 100
-menu_length = 30
-menu_prompt = "Clipcat"
-extra_arguments = []
-
-[choose]
-line_length = 100
-menu_length = 30
-menu_prompt = "Clipcat"
-extra_arguments = []
-
-[custom_finder]
-program = "fzf"
-args = []
+[fuzzel]
+menu_length = 75
+extra_arguments = ["--config=/home/black/.config/fuzzel/clipcat.ini"]
 
 [log]
 emit_journald = true
