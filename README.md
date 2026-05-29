@@ -43,7 +43,7 @@ chezmoi edit ~/.config/xxx/file
 - **启动器**: fuzzel
 - **通知**: mako
 - **剪贴板**: clipcat
-- **锁屏**: swaylock + swayidle
+- **锁屏**: swaylock-effects + swayidle
 - **注销**: wlogout
 - **终端**: alacritty
 - **输入法**: fcitx5 (fcitx5-qt, fcitx5-gtk, fcitx5-chinese-addons, fcitx5-configtool)
