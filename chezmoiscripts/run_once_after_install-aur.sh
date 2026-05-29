@@ -5,5 +5,5 @@ pkg_list() {
     sed -e 's/#.*//' -e '/^[[:space:]]*$/d' "$1"
 }
 
-echo ">>> 安装 AUR 包和字体..."
+echo ">>> 安装 AUR 包..."
 pkg_list ~/.config/niri/pkgs-aur.txt | xargs paru -S --needed --noconfirm

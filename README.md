@@ -16,7 +16,7 @@ chezmoi init --apply git@github.com:MyBlackHole/dotfiles.git
 
 恢复过程会自动执行两个安装脚本（按字母序，extra 先于 aur）：
 1. **`run_once_after_install-extra.sh`** — 安装 paru → extra 源包 + 字体 → 启用系统服务
-2. **`run_once_after_install-aur.sh`** — 安装 AUR 包 + AUR 字体（edge、flclash、maplemono）
+2. **`run_once_after_install-aur.sh`** — 安装 AUR 包（edge、flclash）
 
 > 如果 aur 脚本失败，修复后执行 `chezmoi state delete --script run_once_after_install-aur.sh` 清掉状态，再 `chezmoi apply` 重试即可。
 
@@ -55,4 +55,4 @@ chezmoi edit ~/.config/xxx/file
 - **浏览器**: microsoft-edge-stable
 - **代理**: flclash
 - **开发**: rustup, uv
-- **字体**: CascadiaCode, JetBrainsMono, MapleMono, Mononoki, Material Icons, Noto CJK
+- **字体**: CascadiaCode, JetBrainsMono, Material Icons, Noto CJK
