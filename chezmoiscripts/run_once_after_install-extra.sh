@@ -18,8 +18,19 @@ pkg_list() {
 
 install_paru
 
+install_one() {
+    local pkg="$1"
+    if pacman -Q "$pkg" &>/dev/null; then
+        echo "  -> $pkg 已安装，跳过"
+        return 0
+    fi
+    paru -S --noconfirm "$pkg" && echo "  -> $pkg 安装完成" || echo "  -> 注意: $pkg 安装失败"
+}
+
 echo ">>> 安装系统包和字体（extra 源）..."
-pkg_list ~/.config/niri/pkgs-extra.txt | xargs paru -S --needed --noconfirm
+for pkg in $(pkg_list ~/.config/niri/pkgs-extra.txt); do
+    install_one "$pkg"
+done
 
 echo ">>> 启用系统服务..."
 sudo systemctl enable --now iwd.service bluetooth.service 2>/dev/null || true

@@ -31,7 +31,7 @@ jq
 imagemagick
 libnotify
 xdg-desktop-portal
-xdg-desktop-portal-niri
+xdg-desktop-portal-gnome
 xdg-desktop-portal-gtk
 
 # ---- 主题/外观 ----
