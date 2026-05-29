@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if pacman -Q niri &>/dev/null; then
-    echo ">>> niri 已安装, 跳过"
-    exit 0
-fi
-
 install_paru() {
     command -v paru &>/dev/null && return
     echo ">>> 安装 paru..."
