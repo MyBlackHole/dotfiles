@@ -55,4 +55,5 @@ chezmoi edit ~/.config/xxx/file
 - **浏览器**: microsoft-edge-stable
 - **代理**: flclash
 - **开发**: rustup, uv
-- **字体**: CascadiaCode, JetBrainsMono, Material Icons, Noto CJK
+- **图标主题**: Tela-circle-dracula
+- **字体**: CascadiaCode, JetBrainsMono, Inter, Material Icons, Noto CJK

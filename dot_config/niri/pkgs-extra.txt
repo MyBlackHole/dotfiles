@@ -32,7 +32,7 @@ jq
 imagemagick
 libnotify
 xdg-desktop-portal
-xdg-desktop-portal-wlr
+xdg-desktop-portal-niri
 xdg-desktop-portal-gtk
 
 # ---- 主题/外观 ----
@@ -46,8 +46,9 @@ kvantum-qt5
 alacritty
 fastfetch
 
-# ---- 输入法/壁纸 ----
+# ---- 输入法/壁纸/图标 ----
 fcitx5
+tela-circle-icon-theme-dracula
 fcitx5-qt
 fcitx5-gtk
 fcitx5-chinese-addons
@@ -59,6 +60,7 @@ dolphin
 ark
 neovim
 tmux
+playerctl
 
 # ---- Shell ----
 eza
@@ -70,10 +72,11 @@ rustup
 uv
 
 # ---- 工具 ----
-hyprpicker
+
 
 # ---- 字体（extra 源） ----
 ttf-cascadia-code-nerd
 ttf-jetbrains-mono-nerd
 ttf-material-icons
 noto-fonts-cjk
+inter-font
