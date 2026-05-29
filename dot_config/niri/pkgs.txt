@@ -11,6 +11,10 @@ xwayland-satellite
 
 # ---- 系统服务 ----
 pipewire
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
+gst-plugin-pipewire
 wireplumber
 pavucontrol
 pamixer
@@ -28,16 +32,44 @@ jq
 imagemagick
 libnotify
 xdg-desktop-portal
+xdg-desktop-portal-wlr
 xdg-desktop-portal-gtk
 
 # ---- 主题/外观 ----
 nwg-look
 qt5ct
+qt5-wayland
 qt6ct
+qt6-wayland
 kvantum
+kvantum-qt5
 alacritty
 fastfetch
 
 # ---- 输入法/壁纸 ----
 fcitx5
+fcitx5-qt
+fcitx5-gtk
+fcitx5-chinese-addons
+fcitx5-configtool
 awww
+
+# ---- 应用 ----
+dolphin
+ark
+neovim
+tmux
+microsoft-edge-stable-bin
+flclash-bin
+
+# ---- Shell ----
+eza
+starship
+atuin
+
+# ---- 开发 ----
+rustup
+uv
+
+# ---- 工具 ----
+hyprpicker
