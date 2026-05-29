@@ -3,7 +3,6 @@ niri
 mako
 fuzzel
 waybar
-swaylock
 swayidle
 wlogout
 clipcat
