@@ -59,8 +59,6 @@ dolphin
 ark
 neovim
 tmux
-microsoft-edge-stable-bin
-flclash-bin
 
 # ---- Shell ----
 eza
@@ -73,3 +71,10 @@ uv
 
 # ---- 工具 ----
 hyprpicker
+
+# ---- 字体（extra 源） ----
+ttf-cascadia-code-nerd
+ttf-jetbrains-mono-nerd
+ttf-mononoki-nerd
+ttf-material-icons
+noto-fonts-cjk

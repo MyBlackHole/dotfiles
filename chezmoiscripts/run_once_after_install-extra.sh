@@ -18,11 +18,8 @@ pkg_list() {
 
 install_paru
 
-echo ">>> 安装系统包..."
-pkg_list ~/.config/niri/pkgs.txt | xargs paru -S --needed --noconfirm
-
-echo ">>> 安装字体..."
-pkg_list ~/.config/niri/fonts.txt | xargs paru -S --needed --noconfirm
+echo ">>> 安装系统包和字体（extra 源）..."
+pkg_list ~/.config/niri/pkgs-extra.txt | xargs paru -S --needed --noconfirm
 
 echo ">>> 启用系统服务..."
 sudo systemctl enable --now iwd.service bluetooth.service 2>/dev/null || true
