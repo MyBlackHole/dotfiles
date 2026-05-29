@@ -7,14 +7,19 @@ if pacman -Q niri &>/dev/null; then
     exit 0
 fi
 
+# 安装 paru (AUR helper)
+install_paru() {
+    if command -v paru &>/dev/null; then
+        return 0
+    fi
+    echo ">>> 安装 paru..."
+    sudo pacman -S --needed --noconfirm base-devel git
+    local tmpdir=$(mktemp -d)
+    git clone --depth=1 https://aur.archlinux.org/paru-bin.git "$tmpdir"
+    cd "$tmpdir" && makepkg -si --noconfirm
+    rm -rf "$tmpdir"
+}
+
 echo ">>> 安装系统包..."
-if command -v paru &>/dev/null; then
-    paru -S --needed --noconfirm $(cat ~/.config/niri/pkgs.txt)
-elif command -v yay &>/dev/null; then
-    yay -S --needed --noconfirm $(cat ~/.config/niri/pkgs.txt)
-elif command -v pacman &>/dev/null; then
-    sudo pacman -S --needed $(cat ~/.config/niri/pkgs.txt)
-else
-    echo "! 未检测到包管理器, 手动安装:"
-    cat ~/.config/niri/pkgs.txt
-fi
+install_paru
+paru -S --needed --noconfirm $(cat ~/.config/niri/pkgs.txt)
