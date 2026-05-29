@@ -22,7 +22,7 @@ echo ">>> 安装系统包..."
 pkg_list ~/.config/niri/pkgs.txt | xargs paru -S --needed --noconfirm
 
 echo ">>> 安装字体..."
-pkg_list ~/.config/niri/fonts.txt | xargs sudo pacman -S --needed --noconfirm
+pkg_list ~/.config/niri/fonts.txt | xargs paru -S --needed --noconfirm
 
 echo ">>> 启用系统服务..."
 sudo systemctl enable --now iwd.service bluetooth.service 2>/dev/null || true
