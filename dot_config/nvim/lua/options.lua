@@ -70,6 +70,40 @@ vim.bo.autoread = true
 vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")
 
+-- 透明背景（Neovim 完全启动后强制覆盖）
+vim.api.nvim_create_autocmd("UIEnter", {
+    callback = function()
+        vim.cmd("highlight Normal guibg=NONE")
+        vim.cmd("highlight NonText guibg=NONE")
+        vim.cmd("highlight NormalFloat guibg=NONE")
+        vim.cmd("highlight TabLine guibg=NONE")
+        vim.cmd("highlight StatusLine guibg=NONE")
+        vim.cmd("highlight StatusLineNC guibg=NONE")
+        vim.cmd("highlight WinBar guibg=NONE")
+        vim.cmd("highlight WinBarNC guibg=NONE")
+        -- 所有 St_* 组透明背景
+        for _, hl in ipairs(vim.fn.getcompletion("St_", "highlight")) do
+            pcall(vim.cmd, "highlight " .. hl .. " guibg=NONE")
+        end
+        -- 模式指示器文字加白加粗（无背景色，仅靠白色字体凸显）
+        for _, hl in ipairs({ "St_NormalMode", "St_InsertMode", "St_VisualMode",
+                              "St_CommandMode", "St_ReplaceMode", "St_TerminalMode",
+                              "St_NTerminalMode", "St_SelectMode" }) do
+            pcall(vim.cmd, "highlight " .. hl .. " guifg=#ffffff guibg=NONE guibold=true")
+        end
+        -- cwd/pos 图标原版 fg 是深色（one_bg/black），透明背景后看不见
+        for _, hl in ipairs({ "St_cwd_icon", "St_pos_icon" }) do
+            pcall(vim.cmd, "highlight " .. hl .. " guifg=#ffffff guibg=NONE")
+        end
+        -- 标签栏组透明
+        for _, hl in ipairs(vim.fn.getcompletion("Tb", "highlight")) do
+            pcall(vim.cmd, "highlight " .. hl .. " guibg=NONE")
+        end
+    end,
+})
+
+
+
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- 自动操作
 vim.api.nvim_create_autocmd(
