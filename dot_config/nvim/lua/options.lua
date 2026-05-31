@@ -102,6 +102,20 @@ vim.api.nvim_create_autocmd("UIEnter", {
     end,
 })
 
+-- 侧边栏（NvimTree / Trouble）在 UIEnter 之后才加载，需要独立监听
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "NvimTree", "trouble" },
+    callback = function()
+        vim.schedule(function()
+            for _, prefix in ipairs({ "NvimTree", "Trouble" }) do
+                for _, hl in ipairs(vim.fn.getcompletion(prefix, "highlight")) do
+                    pcall(vim.cmd, "highlight " .. hl .. " guibg=NONE")
+                end
+            end
+        end)
+    end,
+})
+
 
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
