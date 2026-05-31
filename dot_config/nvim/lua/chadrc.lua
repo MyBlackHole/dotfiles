@@ -42,7 +42,8 @@ M.ui = {
          separator_style = { left = "", right = "" },
       },
       tabufline = {
-         lazyload = false
+         lazyload = false,
+         order = { "treeOffset", "buffers", "tabs" },
      }
 }
 
