@@ -113,6 +113,9 @@ output "eDP-1" {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
+    // 让 backdrop 壁纸透过 niri 背景显示
+    background-color "transparent"
+
     // Set gaps around windows in logical pixels.
     gaps 16
 
@@ -359,6 +362,12 @@ window-rule {
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
+}
+
+// 壁纸: awww-daemon 放到 backdrop 层，防止 workspace 切换时壁纸滚动
+layer-rule {
+    match namespace="^awww-daemon$"
+    place-within-backdrop true
 }
 
 binds {
