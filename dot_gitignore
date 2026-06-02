@@ -1,0 +1,49 @@
+# base
+run.sh
+Debug
+
+# aio
+run.aio.*
+
+# c
+*.o
+*.o.cmd
+*.mod.cmd
+*.mod
+*.ko.cmd
+*.mod.c
+*.o.d
+*.symvers
+*.order
+
+# xmake
+.xmake
+build
+.cache
+install
+
+# clangd
+compile_commands.json
+
+# kernel mod
+*.ko
+
+# gdb
+.gdbinit
+.gdb_history
+
+# devbox
+devbox.json
+devbox.lock
+
+# vscode
+.vscode
+
+.gitnexus
+.opencode
+.trellis
+AGENTS.md
+.xmake
+.claude
+.cache
+CLAUDE.md
