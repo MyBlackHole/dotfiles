@@ -44,7 +44,8 @@ M.ui = {
       tabufline = {
          lazyload = false,
          order = { "treeOffset", "buffers", "tabs" },
-     }
+         buf_close_btn = false,
+      }
 }
 
 return M
