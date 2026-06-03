@@ -69,6 +69,7 @@ atuin
 # ---- 开发 ----
 rustup
 uv
+github-cli
 
 # ---- 工具 ----
 orca
