@@ -11,7 +11,12 @@ Niri 桌面环境配置，由 chezmoi 管理。
 sudo pacman -S chezmoi git base-devel
 
 # 2. 恢复 age 加密密钥（用于解密 *.age 文件）
+# 方式 A：gh CLI（需先 gh auth login）
 gh gist view fae3af185c305062ea9fe27e020a454c -f key.txt > ~/.config/chezmoi/key.txt
+# 方式 B：git clone + token（无需 gh 登录）
+git clone https://black:$GITHUB_TOKEN@gist.github.com/fae3af185c305062ea9fe27e020a454c.git /tmp/age-key
+cp /tmp/age-key/key.txt ~/.config/chezmoi/key.txt
+rm -rf /tmp/age-key
 chmod 600 ~/.config/chezmoi/key.txt
 
 # 3. 恢复配置（先恢复文件，再自动执行安装脚本）
