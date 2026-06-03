@@ -10,7 +10,11 @@ Niri 桌面环境配置，由 chezmoi 管理。
 # 1. 安装核心工具
 sudo pacman -S chezmoi git base-devel
 
-# 2. 恢复配置（先恢复文件，再自动执行安装脚本）
+# 2. 恢复 age 加密密钥（用于解密 *.age 文件）
+gh gist view fae3af185c305062ea9fe27e020a454c -f key.txt > ~/.config/chezmoi/key.txt
+chmod 600 ~/.config/chezmoi/key.txt
+
+# 3. 恢复配置（先恢复文件，再自动执行安装脚本）
 chezmoi init --apply git@github.com:MyBlackHole/dotfiles.git
 ```
 
