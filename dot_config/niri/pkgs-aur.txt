@@ -2,5 +2,6 @@
 microsoft-edge-stable-bin
 flclash-bin
 swaylock-effects-git
+opencode-bin
 
 
