@@ -19,6 +19,11 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>", { desc = "ESC exit insert mode" })
 -- lsp hover / signature help 浮窗加圆角边框
 map("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end, { desc = "LSP hover documentation" })
+-- lsp 定义跳转 + 推入 tag stack（方便 <C-t> 回退）
+map("n", "gd", function()
+  vim.lsp.buf.definition()
+  pcall(vim.cmd, "tag") -- push position to tag stack
+end, { desc = "LSP go to definition" })
 -- lsp 重命名
 map("n", "grn", vim.lsp.buf.rename, { desc = "rename symbol under cursor" })
 map("n", "gra", vim.lsp.buf.code_action, { desc = "run code action" })
