@@ -17,11 +17,13 @@ unmap("n", "<leader>h")
 -- 使 ; 同步为 :
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>", { desc = "ESC exit insert mode" })
+-- lsp hover / signature help 浮窗加圆角边框
+map("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end, { desc = "LSP hover documentation" })
 -- lsp 重命名
 map("n", "grn", vim.lsp.buf.rename, { desc = "rename symbol under cursor" })
 map("n", "gra", vim.lsp.buf.code_action, { desc = "run code action" })
 map("n", "grr", vim.lsp.buf.references, { desc = "find references" })
-map("i", "<C-s>", vim.lsp.buf.signature_help, { desc = "show signature help" })
+map("i", "<C-s>", function() vim.lsp.buf.signature_help({ border = "rounded" }) end, { desc = "show signature help" })
 
 map("n", "L", function()
   require("nvchad.tabufline").next()
@@ -38,7 +40,25 @@ end, { desc = "buffer close" })
 
 map("n", "<leader>bn", "<cmd>enew<CR>", { desc = "buffer new" })
 
+-- 修复 nvim-tree 文件信息弹窗（<C-k>）的边框：shadow→rounded
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "NvimTree",
+  once = true,
+  callback = function()
+    pcall(function()
+      local config = require("nvim-tree.config")
+      config.g.actions.file_popup.open_win_config = vim.tbl_deep_extend("force",
+        config.g.actions.file_popup.open_win_config or {},
+        { border = "rounded" }
+      )
+    end)
+  end,
+})
+
 require('gitsigns').setup{
+  preview_config = {
+    border = "rounded",
+  },
   on_attach = function(bufnr)
     local gitsigns = require('gitsigns')
 
