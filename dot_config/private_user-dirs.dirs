@@ -1,6 +1,5 @@
-# This file is written by xdg-user-dirs-update
-# If you want to change or add directories, just edit the line you're
-# interested in. All local changes will be retained on the next run.
+# 由 xdg-user-dirs-update 生成，但已禁用自动覆盖（enabled=false）
+# 由 chezmoi 管理，手动修改即可永久生效
 # Format is XDG_xxx_DIR="$HOME/yyy", where yyy is a shell-escaped
 # homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
 # absolute path. No other format is supported.
