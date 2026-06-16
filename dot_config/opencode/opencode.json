@@ -4,8 +4,9 @@
   "mcp": {
     "ghidra": {
       "command": [
-        "python",
-        "/home/black/Downloads/GhidraMCP-release-1-4/bridge_mcp_ghidra.py",
+        "uv",
+        "run",
+        "~/.config/opencode/bridge_mcp_ghidra.py",
         "--ghidra-server",
         "http://127.0.0.1:8080/"
       ],
