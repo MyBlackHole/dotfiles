@@ -57,6 +57,9 @@ function in {
     fi
 }
 
+# SSH to CentOS 等远端时，强制使用 screen-256color（本地 tmux 默认 screen，不改本地值）
+ssh() { TERM=screen-256color command ssh "$@" }
+
 # Helpful aliases
 alias c='clear' # clear terminal
 alias l='eza -lh --icons=auto' # long list
