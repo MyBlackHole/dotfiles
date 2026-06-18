@@ -1,0 +1,8 @@
+# ---- bun 全局包 ----
+# 每行一个包名，用 `bun install -g <package>` 安装
+# 空行和 # 开头的行会被忽略
+#
+# 示例:
+# typescript
+# prettier
+# eslint

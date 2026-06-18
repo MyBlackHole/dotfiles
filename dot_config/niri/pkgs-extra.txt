@@ -70,6 +70,7 @@ atuin
 rustup
 uv
 github-cli
+bun
 
 # ---- 工具 ----
 orca
