@@ -40,5 +40,8 @@
     "gitnexus@latest",
     "superpowers@git+https://github.com/obra/superpowers.git",
     "oh-my-openagent@latest"
+  ],
+  "instructions": [
+    "~/.config/opencode/AGENTS.md"
   ]
 }
