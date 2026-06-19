@@ -4,11 +4,19 @@ mako
 fuzzel
 waybar
 swayidle
-wlogout
 clipcat
 xwayland-satellite
 
+# ---- 核心工具 ----
+git
+openssh
+fd
+chezmoi
+lsd
+
 # ---- 系统服务 ----
+sddm
+networkmanager
 pipewire
 pipewire-alsa
 pipewire-pulse
@@ -54,12 +62,18 @@ fcitx5-chinese-addons
 fcitx5-configtool
 awww
 
+# ---- 系统监控 ----
+btop
+htop
+
 # ---- 应用 ----
 dolphin
 ark
 neovim
 tmux
 playerctl
+obs-studio
+ffmpegthumbs
 
 # ---- Shell ----
 eza
@@ -71,9 +85,13 @@ rustup
 uv
 github-cli
 bun
+clang
+rust-analyzer
+npm
 
 # ---- 工具 ----
 orca
+wl-clipboard
 
 
 # ---- 字体（extra 源） ----
