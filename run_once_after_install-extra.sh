@@ -38,6 +38,7 @@ sudo systemctl enable --now iwd.service bluetooth.service 2>/dev/null || true
 echo ">>> 启用用户服务..."
 systemctl --user enable --now wireplumber.service 2>/dev/null || true
 systemctl --user enable --now pipewire.socket pipewire-pulse.socket 2>/dev/null || true
+systemctl --user enable --now wayvnc.service 2>/dev/null || true
 
 if command -v bun &>/dev/null; then
     echo ">>> 安装 bun 全局包..."
