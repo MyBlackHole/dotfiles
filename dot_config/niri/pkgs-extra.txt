@@ -92,6 +92,7 @@ npm
 # ---- 工具 ----
 orca
 wl-clipboard
+wayvnc
 
 
 # ---- 字体（extra 源） ----

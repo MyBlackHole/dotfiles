@@ -1,0 +1,17 @@
+# wayvnc 配置
+# 参见: man wayvnc(1)
+# 注: v0.10 部分选项仅限 CLI，不可写进配置文件（如 max_fps/output/seat 等）
+
+# 监听地址（局域网用 0.0.0.0，公网建议 localhost + SSH 隧道）
+address=0.0.0.0
+port=5900
+
+# 认证（需要时取消注释并生成证书）
+# enable_auth=true
+# username=
+# password=
+# private_key_file=/path/to/key.pem
+# certificate_file=/path/to/cert.pem
+
+# 键盘布局
+xkb_layout=us
