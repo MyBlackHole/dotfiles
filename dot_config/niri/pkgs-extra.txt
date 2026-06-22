@@ -16,7 +16,6 @@ lsd
 
 # ---- 系统服务 ----
 sddm
-networkmanager
 pipewire
 pipewire-alsa
 pipewire-pulse
@@ -90,7 +89,6 @@ rust-analyzer
 npm
 
 # ---- 工具 ----
-orca
 wl-clipboard
 wayvnc
 
