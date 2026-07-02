@@ -1,0 +1,54 @@
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+approval_policy = "never"
+sandbox_mode = "danger-full-access"
+network_access = "enabled"
+
+[projects."/home/black/Public/aio/aio-tools/test"]
+trust_level = "trusted"
+
+[projects."/home/black"]
+trust_level = "trusted"
+
+[projects."/home/black/Documents/volmount"]
+trust_level = "trusted"
+
+[hooks.state]
+
+[hooks.state."/home/black/Documents/volmount/.codex/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:2e7f66e3a5449c7d12c4c9376e836fc2d655d08db5177ece2d74b4012fd5f5b0"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 1
+
+[features]
+goals = true
+unified_exec = true
+multi_agent = true
+plugin_hooks = true
+plugins = true
+
+[agents]
+max_threads = 1000
+
+[features.multi_agent_v2]
+max_concurrent_threads_per_session = 1000
+
+[notice]
+hide_world_writable_warning = true
+hide_full_access_warning = true
+
+[agents.lazycodex-clone-fidelity-reviewer]
+config_file = "./agents/lazycodex-clone-fidelity-reviewer.toml"
+
+[agents.lazycodex-code-reviewer]
+config_file = "./agents/lazycodex-code-reviewer.toml"
+
+[agents.lazycodex-executor]
+config_file = "./agents/lazycodex-executor.toml"
+
+[agents.lazycodex-gate-reviewer]
+config_file = "./agents/lazycodex-gate-reviewer.toml"
+
+[agents.lazycodex-qa-executor]
+config_file = "./agents/lazycodex-qa-executor.toml"
