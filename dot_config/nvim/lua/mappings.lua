@@ -45,67 +45,95 @@ end, { desc = "buffer close" })
 
 map("n", "<leader>bn", "<cmd>enew<CR>", { desc = "buffer new" })
 
--- 修复 nvim-tree 文件信息弹窗（<C-k>）的边框：shadow→rounded
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "NvimTree",
-  once = true,
-  callback = function()
-    pcall(function()
-      local config = require("nvim-tree.config")
-      config.g.actions.file_popup.open_win_config = vim.tbl_deep_extend("force",
-        config.g.actions.file_popup.open_win_config or {},
-        { border = "rounded" }
-      )
-    end)
-  end,
-})
+-- Trouble
+map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Diagnostics (Trouble)" })
+map("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { desc = "Buffer Diagnostics (Trouble)" })
+map("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", { desc = "Symbols (Trouble)" })
+map("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", { desc = "LSP Definitions / references / ... (Trouble)" })
+map("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble)" })
+map("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
 
-require('gitsigns').setup{
-  preview_config = {
-    border = "rounded",
-  },
-  on_attach = function(bufnr)
-    local gitsigns = require('gitsigns')
+-- Flash
+map({ "n", "x", "o" }, "s", function()
+  require("flash").jump()
+end, { desc = "Flash" })
+map({ "n", "o", "x" }, "S", function()
+  require("flash").treesitter()
+end, { desc = "Flash Treesitter" })
+map("o", "r", function()
+  require("flash").remote()
+end, { desc = "Remote Flash" })
+map({ "o", "x" }, "R", function()
+  require("flash").treesitter_search()
+end, { desc = "Treesitter Search" })
+map("c", "<c-s>", function()
+  require("flash").toggle()
+end, { desc = "Toggle Flash Search" })
 
-    local function map(mode, l, r, opts)
-      opts = opts or {}
-      opts.buffer = bufnr
-      vim.keymap.set(mode, l, r, opts)
-    end
+-- 翻译
+map("v", "<leader>tt", "<cmd>Translate<cr>", { desc = "Translate" })
+map("v", "<leader>tr", "<cmd>TranslateR<cr>", { desc = "TranslateR" })
+map("v", "<leader>tl", "<cmd>TranslateL<cr>", { desc = "TranslateL" })
+map("v", "<leader>th", "<cmd>TranslateH<cr>", { desc = "TranslateH" })
+map("v", "<leader>tw", "<cmd>TranslateW<cr>", { desc = "TranslateW" })
+map("v", "<leader>tx", "<cmd>TranslateX<cr>", { desc = "TranslateX" })
 
-    -- Navigation
-    map('n', ']c', function()
-      if vim.wo.diff then
-        vim.cmd.normal({']c', bang = true})
-      else
-        gitsigns.nav_hunk('next')
-      end
-    end, {desc = 'Next hunk'})
-
-    map('n', '[c', function()
-      if vim.wo.diff then
-        vim.cmd.normal({'[c', bang = true})
-      else
-        gitsigns.nav_hunk('prev')
-      end
-    end, {desc = 'Previous hunk'})
-
-    -- Actions
-    map('n', '<leader>hs', gitsigns.stage_hunk, {desc = 'Stage hunk'})
-    map('n', '<leader>hr', gitsigns.reset_hunk, {desc = 'Reset hunk'})
-    map('v', '<leader>hs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end, {desc = 'Stage visual selection'})
-    map('v', '<leader>hr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end, {desc = 'Reset visual selection'})
-    map('n', '<leader>hS', gitsigns.stage_buffer, {desc = 'Stage all hunks'})
-    map('n', '<leader>hu', gitsigns.undo_stage_hunk, {desc = 'Undo stage hunk'})
-    map('n', '<leader>hR', gitsigns.reset_buffer, {desc = 'Reset all hunks'})
-    map('n', '<leader>hp', gitsigns.preview_hunk, {desc = 'Preview hunk'})
-    map('n', '<leader>hb', function() gitsigns.blame_line{full=true} end, {desc = 'Blame line'})
-    map('n', '<leader>tb', gitsigns.toggle_current_line_blame, {desc = 'Toggle current line blame'})
-    map('n', '<leader>hd', gitsigns.diffthis, {desc = 'Diff this file'})
-    map('n', '<leader>hD', function() gitsigns.diffthis('~') end, {desc = 'Diff against previous'})
-    map('n', '<leader>td', gitsigns.toggle_deleted, {desc = 'Toggle deleted'})
-
-    -- Text object
-    map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>', {desc = 'Select hunk'})
+-- gitsigns
+map("n", "]c", function()
+  local gitsigns = require("gitsigns")
+  if vim.wo.diff then
+    vim.cmd.normal({ "]c", bang = true })
+  else
+    gitsigns.nav_hunk("next")
   end
-}
+end, { desc = "Next hunk" })
+
+map("n", "[c", function()
+  local gitsigns = require("gitsigns")
+  if vim.wo.diff then
+    vim.cmd.normal({ "[c", bang = true })
+  else
+    gitsigns.nav_hunk("prev")
+  end
+end, { desc = "Previous hunk" })
+
+map("n", "<leader>hs", function()
+  require("gitsigns").stage_hunk()
+end, { desc = "Stage hunk" })
+map("n", "<leader>hr", function()
+  require("gitsigns").reset_hunk()
+end, { desc = "Reset hunk" })
+map("v", "<leader>hs", function()
+  require("gitsigns").stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+end, { desc = "Stage visual selection" })
+map("v", "<leader>hr", function()
+  require("gitsigns").reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+end, { desc = "Reset visual selection" })
+map("n", "<leader>hS", function()
+  require("gitsigns").stage_buffer()
+end, { desc = "Stage all hunks" })
+map("n", "<leader>hu", function()
+  require("gitsigns").undo_stage_hunk()
+end, { desc = "Undo stage hunk" })
+map("n", "<leader>hR", function()
+  require("gitsigns").reset_buffer()
+end, { desc = "Reset all hunks" })
+map("n", "<leader>hp", function()
+  require("gitsigns").preview_hunk()
+end, { desc = "Preview hunk" })
+map("n", "<leader>hb", function()
+  require("gitsigns").blame_line({ full = true })
+end, { desc = "Blame line" })
+map("n", "<leader>tb", function()
+  require("gitsigns").toggle_current_line_blame()
+end, { desc = "Toggle current line blame" })
+map("n", "<leader>hd", function()
+  require("gitsigns").diffthis()
+end, { desc = "Diff this file" })
+map("n", "<leader>hD", function()
+  require("gitsigns").diffthis("~")
+end, { desc = "Diff against previous" })
+map("n", "<leader>td", function()
+  require("gitsigns").toggle_deleted()
+end, { desc = "Toggle deleted" })
+map({ "o", "x" }, "ih", "<cmd>Gitsigns select_hunk<cr>", { desc = "Select hunk" })

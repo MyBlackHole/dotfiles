@@ -23,6 +23,7 @@ require("lazy").setup({
   },
 
   { import = "plugins.core" },
+  { import = "plugins.git" },
   { import = "plugins.ui" },
   { import = "plugins.tools" },
 }, lazy_config)
