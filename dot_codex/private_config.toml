@@ -13,10 +13,21 @@ trust_level = "trusted"
 [projects."/home/black/Documents/volmount"]
 trust_level = "trusted"
 
+[projects."/home/black/Documents/volsnap"]
+trust_level = "trusted"
+
 [hooks.state]
 
 [hooks.state."/home/black/Documents/volmount/.codex/hooks.json:user_prompt_submit:0:0"]
 trusted_hash = "sha256:2e7f66e3a5449c7d12c4c9376e836fc2d655d08db5177ece2d74b4012fd5f5b0"
+
+[hooks.state."/home/black/Documents/volsnap/.codex/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:2e7f66e3a5449c7d12c4c9376e836fc2d655d08db5177ece2d74b4012fd5f5b0"
+
+[tui]
+terminal_title = ["activity", "project-name"]
+status_line = ["model-with-reasoning", "current-dir", "five-hour-limit", "weekly-limit"]
+status_line_use_colors = true
 
 [tui.model_availability_nux]
 "gpt-5.5" = 1
