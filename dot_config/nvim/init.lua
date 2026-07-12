@@ -22,7 +22,9 @@ require("lazy").setup({
     import = "nvchad.plugins",
   },
 
-  { import = "plugins" },
+  { import = "plugins.core" },
+  { import = "plugins.ui" },
+  { import = "plugins.tools" },
 }, lazy_config)
 
 -- load theme
