@@ -27,6 +27,7 @@ description: Use when implementing new features and committing changes - commit 
 
 ```
 无完整分析则无需求开发提交
+无版本号更新则无需求开发提交
 ```
 
 提交信息缺少任何核心要素？停止。补充完整后再提交。
@@ -40,7 +41,16 @@ description: Use when implementing new features and committing changes - commit 
 
 ## 提交信息模板
 
-### 标准格式
+### 标题格式
+
+```
+【F-XXXX】模块: 简短描述, OLD_VERSION -> NEW_VERSION
+```
+
+- `【F-XXXX】`：需求单号，使用中文全角括号
+- `模块`：修改的模块/组件名
+- `简短描述`：一句话概括实现的功能
+- `OLD_VERSION -> NEW_VERSION`：版本号变更，写在标题上便于 git log --oneline 直接看到
 
 ```
 [需求ID] 简短标题
