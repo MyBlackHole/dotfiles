@@ -28,6 +28,13 @@
       "type": "remote",
       "url": "https://mcp.context7.com/mcp"
     },
+    "kb-search": {
+      "type": "remote",
+      "url": "http://10.5.8.44:9999/sse",
+      "headers": {
+        "Authorization": "Bearer hm-46dc0aafc157802b665088c8677437e5"
+      }
+    },
     "sequential-thinking": {
       "type": "local",
       "command": [
@@ -42,5 +49,8 @@
   ],
   "instructions": [
     "~/.config/opencode/AGENTS.md"
-  ]
+  ],
+  "permission": {
+    "external_directory": "allow"
+  }
 }
