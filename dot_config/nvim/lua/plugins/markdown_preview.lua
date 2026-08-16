@@ -11,6 +11,7 @@ return {
     init = function()
       vim.g.mkdp_filetypes = { "markdown" }
       vim.g.mkdp_theme = "dark"
+      vim.g.mkdp_echo_preview_url = 1
     end,
     keys = {
       { "<leader>mb", "<cmd>MarkdownPreviewToggle<CR>", desc = "Markdown 浏览器预览（切换）" },
