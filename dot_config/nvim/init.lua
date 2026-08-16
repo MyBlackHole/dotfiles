@@ -27,6 +27,7 @@ require("lazy").setup({
   { import = "plugins.ui" },
   { import = "plugins.tools" },
   { import = "plugins.md_render" },
+  { import = "plugins.markdown_preview" },
 }, lazy_config)
 
 -- load theme
